@@ -4,7 +4,7 @@ Simple bundle for generate form for newsletter (symfony 2.3) and save to dabase
 
 1. add the following to your `composer.json`:
 
-        "bitnoise/neewsletter-bundle": "dev-master"
+        "bitnoise/newsletter-bundle": "dev-master"
 
     and
 

@@ -19,7 +19,7 @@
         "doctrine/orm": ">=2.2.3,<2.4-dev"
     },
     "autoload": {
-        "psr-0": { "Btn\\BtnNewsletterBundle": "" }
+        "psr-0": { "Btn\\NewsletterBundle": "" }
     },
-    "target-dir": "Btn/BtnNewsletterBundle"
+    "target-dir": "Btn/NewsletterBundle"
 }
