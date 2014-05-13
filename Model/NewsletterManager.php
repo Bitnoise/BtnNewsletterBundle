@@ -1,6 +1,8 @@
 <?php
 namespace Btn\NewsletterBundle\Model;
 
+use Btn\Newsletter\Form\NewsletterType;
+
 class NewsletterManager extends Newsletter
 {
     private $params;
@@ -42,5 +44,31 @@ class NewsletterManager extends Newsletter
         $this->params = $params;
     }
 
+    /**
+     * add email to database
+     * @return Boolean
+     **/
+    public function addEmail($entity)
+    {
+        $exist = $this->em->getRepository('BtnNewsletterBundle:Newsletter')->findOneByEmail($entity->getEmail());
+
+        if (!$exist) {
+            $this->em->persist($entity);
+            $this->em->flush();
+        }
+
+        return true;
+    }
+
+    /**
+     * return newsletter form
+     *
+     * @return Form
+     * @author
+     **/
+    public function getForm()
+    {
+        return new NewsletterType()
+    }
 
 }
