@@ -1,1 +1,11 @@
 services:
+    btn.newsletter:
+        class: Btn\NewsletterBundle\Model\NewsletterManager
+
+    btn.newsletter.twig:
+        class: Btn\NewsletterBundle\Twig\NewsletterExtension
+        tags:
+            - { name: twig.extension }
+        arguments:
+            bc:   '@btn.newsletter'
+            twig: '@twig'

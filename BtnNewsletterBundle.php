@@ -1,6 +1,6 @@
 <?php
 
-namespace Btn\BtnNewsletterBundle;
+namespace Btn\NewsletterBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
