@@ -36,3 +36,24 @@ Simple bundle for generate form for newsletter (symfony 2.3) and save to dabase
             resource: "@BtnNewsletterBundle/Controller/"
             type:     annotation
             prefix:   /
+
+4. usage:
+
+        {{ btn_nl() }}
+
+5. custom config:
+
+        btn_newsletter:
+            template:        "BtnAppBundle::_newsletter.html.twig"
+
+6. custom template:
+
+        <form method="POST" action="{{ path('btn_newsletter_add_email') }}">
+            <div class="mail-text">
+                {{ form_widget(form.email, {'attr': {'placeholder': 'enter your email address'}}) }}
+            </div>
+            <div class="mail-submit">
+                {{ form_widget(form.submit, {'attr': {'class': 'btn violet'}}) }}
+            </div>
+            {{ form_row(form._token) }}
+        </form>
