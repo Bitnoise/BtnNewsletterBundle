@@ -29,3 +29,10 @@ Simple bundle for generate form for newsletter (symfony 2.3) and save to dabase
                 // ...
             );
         }
+
+3. add to routing.yml
+
+    btn_newsletter:
+        resource: "@BtnNewsletterBundle/Controller/"
+        type:     annotation
+        prefix:   /

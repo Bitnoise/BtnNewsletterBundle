@@ -26,7 +26,7 @@ class NewsletterExtension extends \Twig_Extension
     {
         $this->newsletter->setParams(array_replace($this->newsletter->getParams(), $arr));
 
-        return $this->twig->render($this->newsletter->getParam('template'), array('newsletter' => $this->newsletter->getForm()));
+        return $this->twig->render($this->newsletter->getParam('template'), array('form' => $this->newsletter->getForm()->createView()));
     }
 
     public function getName()

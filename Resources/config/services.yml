@@ -1,6 +1,10 @@
 services:
     btn.newsletter:
         class: Btn\NewsletterBundle\Model\NewsletterManager
+        arguments:
+            params: %btn_newsletter%
+            formFactory: @form.factory
+            em: @doctrine.orm.entity_manager
 
     btn.newsletter.twig:
         class: Btn\NewsletterBundle\Twig\NewsletterExtension

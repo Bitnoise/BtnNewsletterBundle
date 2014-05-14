@@ -1,6 +1,6 @@
 <?php
 
-namespace Btn\Newsletter\Entity;
+namespace Btn\NewsletterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;

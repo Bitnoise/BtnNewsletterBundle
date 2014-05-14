@@ -1,15 +1,17 @@
 <?php
 namespace Btn\NewsletterBundle\Model;
 
-use Btn\Newsletter\Form\NewsletterType;
+use Btn\NewsletterBundle\Form\NewsletterType;
 
-class NewsletterManager extends Newsletter
+class NewsletterManager
 {
     private $params;
     private $twig;
 
-    public function __construct(array $params = array()) {
+    public function __construct(array $params = array(), $formFactory, $em) {
         $this->params = $params;
+        $this->formFactory = $formFactory;
+        $this->em = $em;
     }
 
     /**
@@ -68,7 +70,7 @@ class NewsletterManager extends Newsletter
      **/
     public function getForm()
     {
-        return new NewsletterType()
+        return $this->formFactory->create(new NewsletterType());
     }
 
 }
