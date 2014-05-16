@@ -107,7 +107,7 @@ class NewsletterControlController extends Controller
      *
      * @Route("/create", name="cp_newsletter_create")
      * @Method("POST")
-     * @Template("BtnNewsletterBundle:Newsletter:new.html.twig")
+     * @Template("BtnNewsletterBundle:NewsletterControl:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -163,7 +163,7 @@ class NewsletterControlController extends Controller
      *
      * @Route("/{id}/update", name="cp_newsletter_update")
      * @Method("POST")
-     * @Template("BtnNewsletterBundle:Newsletter:edit.html.twig")
+     * @Template("BtnNewsletterBundle:NewsletterControl:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
