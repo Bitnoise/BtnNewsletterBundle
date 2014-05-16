@@ -62,12 +62,10 @@ class NewsletterControlController extends Controller
 
         // Set headers
         $response->headers->set('Cache-Control', 'private');
-        $response->headers->set('Content-type', 'application/octet-stream');
-        $response->headers->set('Content-Disposition', 'attachment; filename="' . basename('csv-' . date('Y-d-m') . '.csv') . '"');
-        $response->headers->set('Content-Encoding', 'windows-1250');
+        $response->headers->set('Content-type', 'application/CSV');
+        $response->headers->set('Content-Disposition', 'attachment;filename=csv-' . date('Y-d-m') . '.csv;');
         $response->headers->set('Content-Transfer-Encoding', 'binary');
         $response->headers->set('Connection', 'Close');
-
         // Send headers before outputting anything
         $response->sendHeaders();
 
@@ -81,7 +79,7 @@ class NewsletterControlController extends Controller
             $csvContent .= $eol . implode($sep, array($entity->getId(), $entity->getEmail())) . $eol . "\n";
         }
 
-        return $response->setContent($csvContent);
+        return $response->setContent($csvContent);;
     }
 
 
