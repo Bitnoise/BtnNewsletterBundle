@@ -1,0 +1,2 @@
+app.newsletter.success: 'Email was added to our database'
+app.newsletter.error: "Email wasn't added to our database. Unexpected error."
