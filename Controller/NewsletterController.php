@@ -18,6 +18,7 @@ class NewsletterController extends BaseController
         $nl = $this->get('btn.newsletter');
         $msg = 'error';
         $form = $nl->getForm();
+        $arr = array();
 
         if ($request->isMethod('POST') && $request->get($form->getName())) {
             $form->handleRequest($request);
@@ -27,10 +28,13 @@ class NewsletterController extends BaseController
                 $msg = 'success';
             }
 
-            $this->setFlash('app.newsletter.' . $msg, $msg);
+            $arr['message'] = 'app.newsletter.' . $msg;
+            $arr['msg_class'] = $msg;
         }
 
-        return $this->render($nl->getParam('template'), array('form' => $form->createView()));
+        $arr['form'] = $form->createView();
+
+        return $this->render($nl->getParam('template'), $arr);
     }
 
 }
