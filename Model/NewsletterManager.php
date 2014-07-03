@@ -63,14 +63,10 @@ class NewsletterManager
     }
 
     /**
-     * return newsletter form
      *
-     * @return Form
-     * @author
-     **/
-    public function getForm()
+     */
+    public function createForm($data = null, array $options = array())
     {
-        return $this->formFactory->create(new NewsletterType());
+        return $this->formFactory->create(new NewsletterType(), $data, $options);
     }
-
 }
