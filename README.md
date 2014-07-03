@@ -25,7 +25,7 @@ Simple bundle for generate form for newsletter (symfony 2.3) and save to dabase
         {
             return array(
                 // ...
-                new Btn\Newsletter\BtnNewsletterBundle(),
+                new Btn\NewsletterBundle\BtnNewsletterBundle(),
                 // ...
             );
         }
