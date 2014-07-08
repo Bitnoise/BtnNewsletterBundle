@@ -69,4 +69,12 @@ class NewsletterManager
     {
         return $this->formFactory->create(new NewsletterType(), $data, $options);
     }
+
+    /**
+     *
+     */
+    public function getForm()
+    {
+        return $this->formFactory->create(new NewsletterType());
+    }
 }
