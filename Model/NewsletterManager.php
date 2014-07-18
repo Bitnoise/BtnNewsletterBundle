@@ -56,7 +56,7 @@ class NewsletterManager
 
         if (!$exist) {
             $this->em->persist($entity);
-            $this->em->flush();
+            $this->em->flush($entity);
         }
 
         return true;
