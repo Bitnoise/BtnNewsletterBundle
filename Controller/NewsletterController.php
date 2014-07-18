@@ -18,12 +18,11 @@ class NewsletterController extends BaseController
         $nl = $this->get('btn.newsletter');
         $msg = 'error';
 
-        if ($request->attributes->get('_route_params') == null) {
-            $form = $nl->getForm();
-        } else {
-            $action = $this->generateUrl($request->attributes->get('_route'), $request->attributes->get('_route_params'));
-            $form = $nl->createForm(null, array('action' => $action));
-        }
+        $action = $this->generateUrl(
+            $request->attributes->get('_route'), 
+            $request->attributes->get('_route_params', array())
+        );
+        $form = $nl->createForm(null, array('action' => $action));
 
         $arr = array();
 
