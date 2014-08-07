@@ -5,3 +5,12 @@ services:
             params: %btn_newsletter%
             formFactory: @form.factory
             em: @doctrine.orm.entity_manager
+
+    btn_newsletter.menu.top:
+        class: Knp\Menu\MenuItem
+        factory_service: btn_admin.menu_builder
+        factory_method: addToMenu
+        arguments: ["@request", "@btn_admin.menu.top", "app.newsletter.name", "cp_newsletter"]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: top_menu }
