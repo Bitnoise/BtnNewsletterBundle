@@ -15,13 +15,16 @@ class NewsletterController extends BaseController
      */
     public function addEmailAction(Request $request)
     {
-        $nl = $this->get('btn.newsletter');
-        $msg = 'error';
+        $nl     = $this->get('btn.newsletter');
+        $msg    = 'error';
+        $action = '';
 
-        $action = $this->generateUrl(
-            $request->attributes->get('_route'), 
-            $request->attributes->get('_route_params', array())
-        );
+        if ($request->attributes->has('_route_params')) {
+            $action = $this->generateUrl(
+                $request->attributes->get('_route'),
+                $request->attributes->get('_route_params', array())
+            );
+        }
         $form = $nl->createForm(null, array('action' => $action));
 
         $arr = array();
