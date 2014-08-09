@@ -39,7 +39,6 @@ class NewsletterControlController extends Controller
 
         $pagination->setTemplate('BtnCrudBundle:Pagination:default.html.twig');
 
-
         return array(
             'pagination' => $pagination,
         );
@@ -54,7 +53,6 @@ class NewsletterControlController extends Controller
     public function exportAction()
     {
         $em = $this->getDoctrine()->getManager();
-
 
         $entities = $em->getRepository('BtnNewsletterBundle:Newsletter')->findAll();
 
@@ -81,7 +79,6 @@ class NewsletterControlController extends Controller
 
         return $response->setContent($csvContent);;
     }
-
 
     /**
      * Displays a form to create a new Newsletter entity.

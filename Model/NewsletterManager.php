@@ -8,7 +8,8 @@ class NewsletterManager
     private $params;
     private $twig;
 
-    public function __construct(array $params = array(), $formFactory, $em) {
+    public function __construct(array $params = array(), $formFactory, $em)
+    {
         $this->params = $params;
         $this->formFactory = $formFactory;
         $this->em = $em;
@@ -18,7 +19,8 @@ class NewsletterManager
      * function for get params
      *
      **/
-    public function getParams() {
+    public function getParams()
+    {
         return $this->params;
     }
 
@@ -26,7 +28,8 @@ class NewsletterManager
      * function for get one item from params
      *
      **/
-    public function getParam($key) {
+    public function getParam($key)
+    {
         return $this->params[$key];
     }
 
@@ -34,7 +37,8 @@ class NewsletterManager
      * function for set one item from params
      *
      **/
-    public function setParam($key, $value) {
+    public function setParam($key, $value)
+    {
         return $this->params[$key] = $value;
     }
 
@@ -42,7 +46,8 @@ class NewsletterManager
      * function for set params
      *
      **/
-    public function setParams($params) {
+    public function setParams($params)
+    {
         $this->params = $params;
     }
 

@@ -1,11 +1,12 @@
 {
     "name": "bitnoise/newsletter-bundle",
     "type": "symfony-bundle",
-    "description": "Simple newsletter for symfony 2.3",
+    "description": "Simple newsletter for bitnoise/admin-bundle",
     "keywords": [ "bitnoise", "utilities"],
     "homepage": "https://github.com/Bitnoise/BtnNewsletterBundle",
     "license": "MIT",
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Bitnoise Team",
@@ -14,12 +15,15 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "symfony/symfony": "2.*",
-        "doctrine/orm": ">=2.2.3,<2.4-dev"
+        "bitnoise/admin-bundle": "~2.0.0",
     },
     "autoload": {
         "psr-0": { "Btn\\NewsletterBundle": "" }
     },
-    "target-dir": "Btn/NewsletterBundle"
+    "target-dir": "Btn/NewsletterBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        }
+    }
 }

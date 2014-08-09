@@ -6,8 +6,8 @@ services:
             formFactory: @form.factory
             em: @doctrine.orm.entity_manager
 
-    btn_newsletter.btn_admin_menu_top_item:
-        class: Knp\Menu\MenuItem
+    btn_newsletter.menu_navbar.newsletter_item:
+        class: %btn_admin.menu_item_class%
         factory_service: btn_admin.menu_builder
         factory_method: createMenu
         arguments: ["@request", "app.newsletter.name", "cp_newsletter", [], []]
