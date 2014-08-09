@@ -13,4 +13,4 @@ services:
         arguments: ["@request", "app.newsletter.name", "cp_newsletter", [], []]
         scope: request
         tags:
-            - { name: btn_admin_menu_item , parent: btn_admin.menu_top_modules }
+            - { name: btn_admin.menu_item , parent: btn_admin.menu_navbar.modules }
