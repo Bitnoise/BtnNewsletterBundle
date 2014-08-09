@@ -17,9 +17,8 @@
         "bitnoise/admin-bundle": "2.0.*"
     },
     "autoload": {
-        "psr-0": { "Btn\\NewsletterBundle": "" }
+        "psr-4": { "Btn\\NewsletterBundle\\": "" }
     },
-    "target-dir": "Btn/NewsletterBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "2.0-dev"
