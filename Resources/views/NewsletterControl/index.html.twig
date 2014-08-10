@@ -1,5 +1,5 @@
-{% from 'BtnCrudBundle::breadcrumb.html.twig' import breadcrumb %}
-{% extends '::control.html.twig' %}
+{% from 'BtnAdminBundle:_macros:breadcrumb.html.twig' import breadcrumb %}
+{% extends 'BtnAdminBundle::base.html.twig' %}
 
 {% block content %}
     <h2>Newsletter</h2>
@@ -31,5 +31,5 @@
 {% endblock %}
 
 {% block breadcrumb %}
-    {{ breadcrumb({'cp_newsletter': 'crud.breadcrumb.list'}) }}
+    {{ breadcrumb({'cp_newsletter': 'btn_admin.list'}) }}
 {% endblock %}
