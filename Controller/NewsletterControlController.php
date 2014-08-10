@@ -37,8 +37,6 @@ class NewsletterControlController extends Controller
             10
         );
 
-        $pagination->setTemplate('BtnCrudBundle:Pagination:default.html.twig');
-
         return array(
             'pagination' => $pagination,
         );
