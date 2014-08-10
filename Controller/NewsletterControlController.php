@@ -115,7 +115,7 @@ class NewsletterControlController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            $msg = $this->get('translator')->trans('crud.flash.saved');
+            $msg = $this->get('translator')->trans('btn_admin.flash.saved');
             $this->getRequest()->getSession()->getFlashBag()->set('success', $msg);
 
             return $this->redirect($this->generateUrl('cp_newsletter_edit', array('id' => $entity->getId())));
@@ -178,7 +178,7 @@ class NewsletterControlController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            $msg = $this->get('translator')->trans('crud.flash.saved');
+            $msg = $this->get('translator')->trans('btn_admin.flash.saved');
             $this->getRequest()->getSession()->getFlashBag()->set('success', $msg);
 
             return $this->redirect($this->generateUrl('cp_newsletter_edit', array('id' => $id)));
@@ -213,7 +213,7 @@ class NewsletterControlController extends Controller
             $em->remove($entity);
             $em->flush();
 
-            $msg = $this->get('translator')->trans('crud.flash.deleted');
+            $msg = $this->get('translator')->trans('btn_admin.flash.deleted');
             $this->getRequest()->getSession()->getFlashBag()->set('success', $msg);
         }
 

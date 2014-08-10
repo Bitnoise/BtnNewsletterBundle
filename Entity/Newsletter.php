@@ -4,7 +4,6 @@ namespace Btn\NewsletterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Btn\ControlBundle\Entity\UserAwareTrait;
 
 /**
  * @ORM\HasLifecycleCallbacks
@@ -13,8 +12,6 @@ use Btn\ControlBundle\Entity\UserAwareTrait;
  */
 class Newsletter
 {
-    use UserAwareTrait; # inject via composer post cmd
-
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
