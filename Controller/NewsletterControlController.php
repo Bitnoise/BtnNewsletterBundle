@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Newsletter controller.
  *
- * @Route("/control/newsletter")
+ * @Route("/newsletter")
  */
 class NewsletterControlController extends Controller
 {
