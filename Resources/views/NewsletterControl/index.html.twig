@@ -9,7 +9,7 @@
             <tr>
                 <th class="btn-control-column-id">Id</th>
                 <th>E-mail</th>
-                <th>{% trans %}crud.actions{% endtrans %}</th>
+                <th>{% trans %}btn_admin.actions{% endtrans %}</th>
             </tr>
         </thead>
         <tbody>
@@ -17,7 +17,7 @@
             <tr>
                 <td class="btn-control-column-id">{{ entity.id }}</td>
                 <td>{{ entity.email }}</td>
-                <td><a href="{{ path('cp_newsletter_edit', { 'id': entity.id }) }}" class="btn btn-primary">{% trans %}crud.edit{% endtrans %}</a>                </td>
+                <td><a href="{{ path('cp_newsletter_edit', { 'id': entity.id }) }}" class="btn btn-primary">{% trans %}btn_admin.edit{% endtrans %}</a>                </td>
             </tr>
         {% endfor %}
         </tbody>
