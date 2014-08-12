@@ -1,8 +1,6 @@
 {% from 'BtnAdminBundle:Macros:breadcrumb.html.twig' import breadcrumb %}
 {% extends 'BtnAdminBundle::base.html.twig' %}
 
-{% form_theme form 'BtnAdminBundle:Form:fields.html.twig' %}
-
 {% block content %}
 
     <form action="{{ path('cp_newsletter_create') }}" method="post" {{ form_enctype(form) }} class="well form-horizontal" novalidate>
