@@ -2,12 +2,12 @@
 
 namespace Btn\NewsletterBundle\Controller;
 
-use Btn\BaseBundle\Controller\BaseController;
+use Btn\BaseBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
-class NewsletterController extends BaseController
+class NewsletterController extends AbstractController
 {
     /**
      * @Route("/add-email", name="btn_newsletter_add_email")
