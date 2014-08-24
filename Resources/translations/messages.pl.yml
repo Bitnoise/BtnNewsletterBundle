@@ -1,3 +1,0 @@
-app.newsletter.success: 'Email został dodany do naszej bazy'
-app.newsletter.error: 'Email nie został dodany do naszej bazy bazy. Wystąpił nieoczekiwany błąd.'
-app.newsletter.name: "Newsletter"

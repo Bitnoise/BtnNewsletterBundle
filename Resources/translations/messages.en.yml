@@ -1,3 +1,10 @@
-app.newsletter.success: 'Email was added to our database'
-app.newsletter.error: "Email wasn't added to our database. Unexpected error."
-app.newsletter.name: "Newsletter"
+btn_newsletter.newslettercontrol_index: 'Newsletter list'
+btn_newsletter.newslettercontrol_edit: 'Newsletter edit'
+btn_newsletter.newslettercontrol_new: 'Newsletter new'
+
+btn_newsletter.message.success: 'Email was added to our database'
+btn_newsletter.message.error: 'Email wasn''t added to our database. Unexpected error.'
+btn_newsletter.message.error.email_already_in_database: 'This email is already in our database'
+btn_newsletter.message.error.email_invalid: 'The email "{{ value }}" is not a valid email.'
+
+btn_newsletter.newsletter.email: 'Email'

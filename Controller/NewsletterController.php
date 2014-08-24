@@ -7,17 +7,22 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @Route("/newsletter")
+ */
 class NewsletterController extends AbstractController
 {
     /**
-     * @Route("/add-email", name="btn_newsletter_add_email")
+     * @Route("/new", name="btn_newsletter_newsletter_new")
+     * @Route("/create", name="btn_newsletter_newsletter_create")
      * @Template()
      */
-    public function addEmailAction(Request $request)
+    public function createAction(Request $request)
     {
-        $nl     = $this->get('btn.newsletter');
-        $msg    = 'error';
-        $action = '';
+        $message = '';
+        $action  = '';
+
+        $entity = $this->get('btn_newsletter.provider.newsletter')->create();
 
         if ($request->attributes->has('_route_params')) {
             $action = $this->generateUrl(
@@ -25,25 +30,20 @@ class NewsletterController extends AbstractController
                 $request->attributes->get('_route_params', array())
             );
         }
-        $form = $nl->createForm(null, array('action' => $action));
 
-        $arr = array();
+        $form = $this->createForm('btn_newsletter_form_newsletter', $entity, array(
+            'action' => $action,
+        ));
 
-        if ($request->isMethod('POST') && $request->get($form->getName())) {
-            $form->handleRequest($request);
-
-            if ($form->isValid()) {
-                $nl->addEmail($form->getData());
-                $msg = 'success';
-            }
-
-            $arr['message'] = 'app.newsletter.' . $msg;
-            $arr['msg_class'] = $msg;
+        if ($this->get('btn_admin.form_handler')->handle($form, $request)) {
+            $message = 'success';
+        } elseif ($form->isSubmitted() && !$form->isValid()) {
+            $message = 'error';
         }
 
-        $arr['form'] = $form->createView();
-
-        return $this->render($nl->getParam('template'), $arr);
+        return array(
+            'message' => $message ? 'btn_newsletter.message.'.$message : null,
+            'form'    => $form->createView(),
+        );
     }
-
 }

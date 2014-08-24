@@ -39,7 +39,7 @@ Simple bundle for generate form for newsletter (symfony 2.3) and save to dabase
 
 4. usage:
 
-        {{ render(controller('BtnNewsletterBundle:Newsletter:addEmail', {'request': app.request})) }}
+        {{ render(controller('BtnNewsletterBundle:Newsletter:create', {'request': app.request})) }}
 
 5. custom config:
 

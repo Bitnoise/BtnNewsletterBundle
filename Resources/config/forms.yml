@@ -1,0 +1,19 @@
+parameters:
+    btn_newsletter.form.newsletter.class: Btn\NewsletterBundle\Form\NewsletterForm
+    btn_newsletter.form.newsletter_control.class: Btn\NewsletterBundle\Form\NewsletterControlForm
+
+services:
+    btn_newsletter.form.newsletter:
+        class: %btn_newsletter.form.newsletter.class%
+        calls:
+            - [setClass, [%btn_newsletter.newsletter.class%]]
+        tags:
+            - { name: form.type, alias: btn_newsletter_form_newsletter }
+
+    btn_newsletter.form.newsletter_control:
+        class: %btn_newsletter.form.newsletter_control.class%
+        parent: btn_admin.form.abstract
+        calls:
+            - [setClass, [%btn_newsletter.newsletter.class%]]
+        tags:
+            - { name: form.type, alias: btn_newsletter_form_newsletter_control }
