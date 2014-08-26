@@ -24,7 +24,7 @@
         }
     ],
     "autoload": {
-        "psr-0": { "Btn\\NewsletterBundle\\": "src/" }
+        "psr-4": { "Btn\\NewsletterBundle\\": "src/Btn/NewsletterBundle/" }
     },
     "extra": {
         "branch-alias": {
