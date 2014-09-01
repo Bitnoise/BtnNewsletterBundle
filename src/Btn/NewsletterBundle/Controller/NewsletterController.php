@@ -19,18 +19,18 @@ class NewsletterController extends AbstractController
      */
     public function createAction(Request $request)
     {
-        $message = '';
+        $message = null;
 
         $form = $this->get('btn_newsletter.form_factory')->createFormForRequest($request);
 
         if ($this->get('btn_admin.form_handler')->handle($form, $request)) {
-            $message = 'success';
+            $message = 'btn_newsletter.message.success';
         } elseif ($form->isSubmitted() && !$form->isValid()) {
-            $message = 'error';
+            $message = 'btn_newsletter.message.error';
         }
 
         return array(
-            'message' => $message ? 'btn_newsletter.message.'.$message : null,
+            'message' => $message,
             'form'    => $form->createView(),
         );
     }
