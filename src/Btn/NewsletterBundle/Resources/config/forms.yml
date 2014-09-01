@@ -1,6 +1,7 @@
 parameters:
     btn_newsletter.form.newsletter.class: Btn\NewsletterBundle\Form\NewsletterForm
     btn_newsletter.form.newsletter_control.class: Btn\NewsletterBundle\Form\NewsletterControlForm
+    btn_newsletter.form.factory.form.class: Btn\NewsletterBundle\Form\Factory\FormFactory
 
 services:
     btn_newsletter.form.newsletter:
@@ -17,3 +18,12 @@ services:
             - [setClass, [%btn_newsletter.newsletter.class%]]
         tags:
             - { name: form.type, alias: btn_newsletter_form_newsletter_control }
+
+    btn_newsletter.form.factory.form:
+        class: %btn_newsletter.form.factory.form.class%
+        arguments:
+            formFactory: @form.factory
+            entityProvider: @btn_newsletter.provider.newsletter
+            router: @router
+
+    btn_newsletter.form_factory: @btn_newsletter.form.factory.form

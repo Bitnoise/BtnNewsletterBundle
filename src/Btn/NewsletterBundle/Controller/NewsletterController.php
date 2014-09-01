@@ -20,20 +20,8 @@ class NewsletterController extends AbstractController
     public function createAction(Request $request)
     {
         $message = '';
-        $action  = '';
 
-        $entity = $this->get('btn_newsletter.provider.newsletter')->create();
-
-        if ($request->attributes->has('_route_params')) {
-            $action = $this->generateUrl(
-                $request->attributes->get('_route'),
-                $request->attributes->get('_route_params', array())
-            );
-        }
-
-        $form = $this->createForm('btn_newsletter_form_newsletter', $entity, array(
-            'action' => $action,
-        ));
+        $form = $this->get('btn_newsletter.form_factory')->createFormForRequest($request);
 
         if ($this->get('btn_admin.form_handler')->handle($form, $request)) {
             $message = 'success';
