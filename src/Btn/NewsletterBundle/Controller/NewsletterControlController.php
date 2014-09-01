@@ -43,6 +43,6 @@ class NewsletterControlController extends CrudController
             $csvContent .= $eol.implode($sep, array($entity->getId(), $entity->getEmail())).$eol."\n";
         }
 
-        return $response->setContent($csvContent);;
+        return $response->setContent($csvContent);
     }
 }

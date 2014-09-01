@@ -16,6 +16,6 @@ class BtnNewsletterExtension extends AbstractExtension
 
         $config = $this->getProcessedConfig($container, $configs);
 
-        $container->setParameter('btn_newsletter.newsletter.class' , $config['newsletter']['class']);
+        $container->setParameter('btn_newsletter.newsletter.class', $config['newsletter']['class']);
     }
 }
