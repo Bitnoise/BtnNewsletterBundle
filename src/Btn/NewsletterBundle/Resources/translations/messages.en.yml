@@ -1,3 +1,5 @@
+btn_newsletter.newsletter: 'Newsletter'
+
 btn_newsletter.newslettercontrol_index: 'Newsletter list'
 btn_newsletter.newslettercontrol_edit: 'Newsletter edit'
 btn_newsletter.newslettercontrol_new: 'Newsletter new'

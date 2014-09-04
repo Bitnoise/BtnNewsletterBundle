@@ -4,7 +4,7 @@ services:
         class: %btn_admin.menu_item.class%
         factory_service: btn_admin.menu_builder
         factory_method: createMenu
-        arguments: ["@request", "app.newsletter.name", "btn_newsletter_newslettercontrol_index", [], []]
+        arguments: ["@request", "btn_newsletter.newsletter", "btn_newsletter_newslettercontrol_index", [], []]
         scope: request
         tags:
             - { name: btn_admin.menu_item , parent: btn_admin.menu_navbar.modules }
