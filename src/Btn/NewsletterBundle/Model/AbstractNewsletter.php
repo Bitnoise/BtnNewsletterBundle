@@ -22,6 +22,7 @@ class AbstractNewsletter implements NewsletterInterface
 
     /**
      * @var string
+     * @Assert\NotBlank()
      * @Assert\Email(
      *     message = "The email '{{ value }}' is not a valid email.",
      *     checkMX = true
