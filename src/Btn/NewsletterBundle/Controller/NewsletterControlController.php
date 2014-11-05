@@ -34,10 +34,10 @@ class NewsletterControlController extends CrudController
         $response->headers->set('Content-Transfer-Encoding', 'binary');
         $response->headers->set('Connection', 'Close');
 
-        $response->setCallback(function() use($iterableResult) {
+        $response->setCallback(function () use ($iterableResult) {
             $config     = new ExporterConfig();
             $exporter   = new Exporter($config);
-            $collection = new CallbackCollection($iterableResult, function($row) {
+            $collection = new CallbackCollection($iterableResult, function ($row) {
                 return array(
                     $row[0]->getId(),
                     $row[0]->getEmail(),
