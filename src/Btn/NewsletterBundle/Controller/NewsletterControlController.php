@@ -4,7 +4,10 @@ namespace Btn\NewsletterBundle\Controller;
 
 use Btn\AdminBundle\Controller\CrudController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+use Goodby\CSV\Export\Standard\ExporterConfig;
+use Goodby\CSV\Export\Standard\Exporter;
+use Goodby\CSV\Export\Standard\Collection\CallbackCollection;
 use Btn\AdminBundle\Annotation\Crud;
 
 /**
@@ -20,29 +23,32 @@ class NewsletterControlController extends CrudController
      */
     public function exportAction()
     {
-        $entities = $this->getEntityProvider()->getRepository()->findAll();
+        $query = $this->getEntityProvider()->getRepository()->getExportQuery();
+        $iterableResult = $query->iterate();
 
-        $response = new Response();
-
-        // Set headers
+        $response = new StreamedResponse();
+        $response->setStatusCode(200);
         $response->headers->set('Cache-Control', 'private');
-        $response->headers->set('Content-type', 'application/CSV');
-        $response->headers->set('Content-Disposition', 'attachment;filename=csv-'.date('Y-d-m').'.csv;');
+        $response->headers->set('Content-Type', 'text/csv');
+        $response->headers->set('Content-Disposition', 'attachment;filename=csv-'.date('Y-d-m').'.csv');
         $response->headers->set('Content-Transfer-Encoding', 'binary');
         $response->headers->set('Connection', 'Close');
-        // Send headers before outputting anything
-        $response->sendHeaders();
 
-        $sep = '";"';
-        $eol = '"';
-        $csv = '';
-        $csvHeader = array('id', 'email');
-        $csvContent = $eol.implode($sep, $csvHeader).$eol."\n";
+        $response->setCallback(function() use($iterableResult) {
+            $config     = new ExporterConfig();
+            $exporter   = new Exporter($config);
+            $collection = new CallbackCollection($iterableResult, function($row) {
+                return array(
+                    $row[0]->getId(),
+                    $row[0]->getEmail(),
+                );
+            });
 
-        foreach ($entities as $entity) {
-            $csvContent .= $eol.implode($sep, array($entity->getId(), $entity->getEmail())).$eol."\n";
-        }
+            $exporter->export('php://output', $collection);
+        });
 
-        return $response->setContent($csvContent);
+        $response->send();
+
+        return $response;
     }
 }
